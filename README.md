@@ -2,7 +2,7 @@
 
 ## Installation
 ```bash
-composer require gpsin/google-merchant
+composer require gptinker/google-merchant
 ```
 
 ## Setup
