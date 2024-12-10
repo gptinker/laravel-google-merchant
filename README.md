@@ -48,7 +48,23 @@ if($response['status'] == 'success'){
 }
 ```
 
-#### 3. Update Product
+#### 3. Get Product
+
+```bash
+$product_id = Same id used in "offerId" while insertion
+```
+
+```php
+$response = ProductApi::get($product_id);
+
+if($response['status'] == 'success'){
+    // Found
+}else{
+    // Not Found
+}
+```
+
+#### 4. Update Product
 
 The request body contains an instance of [Product](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product)
 
@@ -66,7 +82,7 @@ if($response['status'] == 'success'){
 }
 ```
 
-#### 3. Delete Product
+#### 5. Delete Product
 
 ```bash
 $product_id = Same id used in "offerId" while insertion
