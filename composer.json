@@ -12,7 +12,7 @@
             "Gptinker\\GoogleMerchant\\": "src/"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "gptinker/laravel-google-merchant": "dev-main"
     },
