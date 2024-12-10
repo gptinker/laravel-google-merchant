@@ -50,6 +50,33 @@ class ProductApiService extends Service{
         }
     }
 
+    public function get($product_id)
+    {
+        $other_product_data = [
+            'channel' => env("GOOGLE_MERCHANT_CHANNEL", "online"),
+            'contentLanguage' => env("GOOGLE_MERCHANT_CONTENT_LANGUAGE", "en"),
+            'targetCountry' => env("GOOGLE_MERCHANT_TARGET_COUNTRY", "AE"),
+            'product_id' => $product_id
+        ];
+
+        $product_id = implode(':', $other_product_data);
+
+        try {
+            $accessToken = $this->generateAccessToken();
+    
+            $response = Http::withToken($accessToken)
+                ->get($this->apiUrl("products/$product_id"));
+    
+            if ($response->successful()) {
+                return $this->successResponse($response->json(), 'Product found!');
+            } else {
+                return $this->errorResponse($response->json()['error']['message']);
+            }
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage());
+        }
+    }
+
     public function update($product_data, $product_id)
     {
         $other_product_data = [
