@@ -13,9 +13,7 @@
         }
     },
     "minimum-stability": "stable",
-    "require": {
-        "gptinker/laravel-google-merchant": "dev-main"
-    },
+    "require": {},
     "extra": {
         "laravel": {
             "providers": [
