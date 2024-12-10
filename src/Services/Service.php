@@ -13,7 +13,7 @@ class Service{
     public function __construct()
     {
         $this->merchant_id = env('GOOGLE_MERCHANT_ID');
-        $this->credential_file_path = storage_path('/json/opportune-baton-443711-e5-0b02c8d4c557.json');
+        $this->credential_file_path = storage_path('/json/google-merchant-credentials.json');
         $this->api_base_url = "https://shoppingcontent.googleapis.com/content/v2.1";
     }
 
