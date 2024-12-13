@@ -26,6 +26,10 @@ class ProductApiService extends Service{
 
     public function insert($product_data)
     {
+        if(empty($product_data)){
+            return $this->errorResponse('Product data is required!');
+        }
+
         $other_product_data = [
             'channel' => env("GOOGLE_MERCHANT_CHANNEL", "online"),
             'contentLanguage' => env("GOOGLE_MERCHANT_CONTENT_LANGUAGE", "en"),
@@ -52,6 +56,11 @@ class ProductApiService extends Service{
 
     public function get($product_id)
     {
+
+        if(!$product_id){
+            return $this->errorResponse('Product ID is required!');
+        }
+
         $other_product_data = [
             'channel' => env("GOOGLE_MERCHANT_CHANNEL", "online"),
             'contentLanguage' => env("GOOGLE_MERCHANT_CONTENT_LANGUAGE", "en"),
@@ -79,6 +88,15 @@ class ProductApiService extends Service{
 
     public function update($product_data, $product_id)
     {
+
+        if(!$product_id){
+            return $this->errorResponse('Product ID is required!');
+        }
+
+        if(empty($product_data)){
+            return $this->errorResponse('Product data is required!');
+        }
+
         $other_product_data = [
             'channel' => env("GOOGLE_MERCHANT_CHANNEL", "online"),
             'contentLanguage' => env("GOOGLE_MERCHANT_CONTENT_LANGUAGE", "en"),
@@ -106,6 +124,11 @@ class ProductApiService extends Service{
 
     public function delete($product_id)
     {
+
+        if(!$product_id){
+            return $this->errorResponse('Product ID is required!');
+        }
+
         $other_product_data = [
             'channel' => env("GOOGLE_MERCHANT_CHANNEL", "online"),
             'contentLanguage' => env("GOOGLE_MERCHANT_CONTENT_LANGUAGE", "en"),
